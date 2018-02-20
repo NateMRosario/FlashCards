@@ -14,7 +14,6 @@ class MainView: UIView {
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        // TODO: Set name
         label.font = Settings.manager.globalDetailFont
         label.text = " "
         label.textColor = .lightGray

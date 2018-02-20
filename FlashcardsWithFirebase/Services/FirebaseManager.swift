@@ -78,13 +78,13 @@ class FirebaseManager {
                 child.setValue(CurrentUser(name: name, userUID: user.uid, categories: nil).userToJson())
                 
                 ///Send verification email
-                                    user.sendEmailVerification(completion: { (error) in
-                                        if let error = error {
-                                            print(error)
-                                        } else {
-                                            print("verification email sent")
-                                        }
-                                    })
+                user.sendEmailVerification(completion: { (error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        print("verification email sent")
+                    }
+                })
             }
         }
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
@@ -209,10 +209,10 @@ extension FirebaseManager {
     func addCard(question: String, answer: String, category: CardCategory) {
         let child = cardReference.childByAutoId()
         
-        let card = Card(question: question, answer: answer, cardUID: child.key).questionToJson()
+        child.setValue(Card(question: question, answer: answer, cardUID: child.key).questionToJson())
         let categoryChild = getCategoryChild(uid: category.categoryUID)
         
-        loadCommentUIDs(categoryUID: category.categoryUID, completionHandler: {
+        loadCardUIDs(categoryUID: category.categoryUID, completionHandler: {
             var currentUIDS = $0
             currentUIDS.append(child.key)
             categoryChild.child("cards").setValue(currentUIDS)
@@ -223,11 +223,11 @@ extension FirebaseManager {
         
     }
     private func getCategoryChild(uid: String) -> DatabaseReference {
-        return Database.database().reference(withPath: "categories").child(uid)
+        return Database.database().reference(withPath: "category").child(uid)
     }
-    private func loadCommentUIDs(categoryUID: String,
-                         completionHandler: @escaping ([String]) -> Void,
-                         errorHandler: @escaping (Error) -> Void) {
+    private func loadCardUIDs(categoryUID: String,
+                              completionHandler: @escaping ([String]) -> Void,
+                              errorHandler: @escaping (Error) -> Void) {
         categoryReference.child("cards").observeSingleEvent(of: .value) { (snapshot) in
             if let uids = snapshot.value as? [String] {
                 completionHandler(uids)
@@ -235,5 +235,29 @@ extension FirebaseManager {
                 errorHandler(Problems.emptyCardArrayInCategory)
             }
         }
-}
+    }
+    
+    func loadCards(completionHandler: @escaping ([Card]?, Error?) -> Void) {
+        cardReference.observe(.value) { (snapshot) in
+            guard let snapshots = snapshot.children.allObjects as? [DataSnapshot]else {print("no children");return}
+            var allCards = [Card]()
+            for snap in snapshots {
+                guard let rawJSON = snap.value else {continue}
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: rawJSON, options: [])
+                    let card = try JSONDecoder().decode(Card.self, from: jsonData)
+                    allCards.append(card)
+                    print("card added")
+                } catch {
+                    print(error)
+                }
+            }
+            completionHandler(allCards, nil)
+            if allCards.isEmpty {
+                print("There are no cards")
+            } else {
+                print("cards loaded")
+            }
+        }
+    }
 }

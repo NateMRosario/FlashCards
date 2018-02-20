@@ -22,6 +22,7 @@
 		8137610D2034A26800F5C033 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137610C2034A26800F5C033 /* FirebaseModel.swift */; };
 		8137610F2034A4A700F5C033 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137610E2034A4A700F5C033 /* FirebaseManager.swift */; };
 		819A1B20203C7C6500AE39D9 /* FlashCardOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A1B1F203C7C6500AE39D9 /* FlashCardOptionView.swift */; };
+		819A1B22203C89BA00AE39D9 /* QuestionAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A1B21203C89BA00AE39D9 /* QuestionAnswerViewController.swift */; };
 		81C3CC452038A40B003F781B /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3CC442038A40B003F781B /* CategoryCollectionCell.swift */; };
 		81C3CC472038A4C1003F781B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3CC462038A4C1003F781B /* Settings.swift */; };
 		81D958532035ED6B001DB217 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D958522035ED6B001DB217 /* MainView.swift */; };
@@ -75,6 +76,7 @@
 		8137610C2034A26800F5C033 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		8137610E2034A4A700F5C033 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		819A1B1F203C7C6500AE39D9 /* FlashCardOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardOptionView.swift; sourceTree = "<group>"; };
+		819A1B21203C89BA00AE39D9 /* QuestionAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerViewController.swift; sourceTree = "<group>"; };
 		81C3CC442038A40B003F781B /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		81C3CC462038A4C1003F781B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		81D958522035ED6B001DB217 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				813760BC203275FD00F5C033 /* AccountViewController.swift */,
 				813760902032525E00F5C033 /* MainViewController.swift */,
 				81D9585420362E61001DB217 /* FlashCardViewController.swift */,
+				819A1B21203C89BA00AE39D9 /* QuestionAnswerViewController.swift */,
 				81D9585820362F71001DB217 /* CreateViewController.swift */,
 			);
 			path = ViewControllers;
@@ -545,6 +548,7 @@
 				8137610D2034A26800F5C033 /* FirebaseModel.swift in Sources */,
 				81D958532035ED6B001DB217 /* MainView.swift in Sources */,
 				819A1B20203C7C6500AE39D9 /* FlashCardOptionView.swift in Sources */,
+				819A1B22203C89BA00AE39D9 /* QuestionAnswerViewController.swift in Sources */,
 				813760BD203275FD00F5C033 /* AccountViewController.swift in Sources */,
 				81C3CC472038A4C1003F781B /* Settings.swift in Sources */,
 				81C3CC452038A40B003F781B /* CategoryCollectionCell.swift in Sources */,

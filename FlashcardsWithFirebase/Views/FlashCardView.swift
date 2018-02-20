@@ -19,6 +19,12 @@ class FlashCardView: UIView {
         return label
     }()
     
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Back", for: .normal)
+        return button
+    }()
+    
     lazy var countLabel: UILabel = {
         let label = UILabel()
         label.text = "1/10"
@@ -60,10 +66,14 @@ class FlashCardView: UIView {
         addSubview(countLabel)
         addSubview(containerView)
         addSubview(questionLabel)
+        addSubview(backButton)
         
         categoryName.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.top.equalTo(self).offset(40)
+        }
+        backButton.snp.makeConstraints { (make) in
+            make.top.leading.equalTo(40)
         }
         
         countLabel.snp.makeConstraints { (make) in
