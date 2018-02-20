@@ -14,7 +14,6 @@ enum Problems: Error {
     case emptyCardArrayInCategory
     case userHasNoCategory
     case noUserSignedIn
-    case emptyCardArrayInCategory
 }
 
 class FirebaseManager {
@@ -233,9 +232,8 @@ extension FirebaseManager {
             if let uids = snapshot.value as? [String] {
                 completionHandler(uids)
             } else {
-                errorHandler(Problems.emptyCardArrayInCategory
+                errorHandler(Problems.emptyCardArrayInCategory)
             }
-        })
-    }
+        }
 }
-
+}
